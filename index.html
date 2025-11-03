@@ -11,16 +11,18 @@
 <body>
 
     <main class="container">
+        
         <div class="logo">
             <img src="logo.svg" alt="cromni" class="logo-img">
         </div>
+        
         <img id="avatar" src="avatar.png" alt="avatar">
         
         <section class="conteudo-principal">
             <h2>Estamos Chegando!</h2>
             <p>Um novo jeito, simples, ágil e seguro de fazer controle de ponto, está sendo criado para você e seu RH.</p>
             
-            <form action="https://formsubmit.co/cromniponto@gmail.com" method="POST" id="form-cromni" class="form-cadastro" novalidate>
+            <form action="https://formsubmit.co/cromniponto@gmail.com" id="form-cromni" class="form-cadastro" novalidate>
                 
                 <input type="hidden" name="_next" value="/success.html">
                 
@@ -36,7 +38,7 @@
                         value=""
                     >
                 </div>
-                
+
                 <button type="submit" class="cta-button">
                     Quero ser o Primeiro a Saber!
                 </button>
@@ -53,5 +55,28 @@
             
     </main>
     
+    <script>
+        document.getElementById('form-cromni').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var form = event.target;
+            var formData = new FormData(form);
+            var data = new URLSearchParams(formData).toString();
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data
+            })
+            .then(response => {
+                window.location.href = form.querySelector('input[name="_next"]').value;
+            })
+            .catch(error => {
+                window.location.href = form.querySelector('input[name="_next"]').value;
+            });
+        });
+    </script>
 </body>
 </html>
