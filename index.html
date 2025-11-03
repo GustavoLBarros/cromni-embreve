@@ -22,9 +22,9 @@
             <h2>Estamos Chegando!</h2>
             <p>Um novo jeito, simples, ágil e seguro de fazer controle de ponto, está sendo criado para você e seu RH.</p>
             
-            <form action="https://formsubmit.co/cromniponto@gmail.com" id="form-cromni" class="form-cadastro" novalidate>
+            <form action="https://formsubmit.co/cromniponto@gmail.com" method="POST" id="form-cromni" class="form-cadastro" novalidate>
                 
-                <input type="hidden" name="_next" value="/success.html">
+                <input type="hidden" name="_next" value="https://cromni-exemplo.com.br/success.html">
                 
                 <div class="input-group">
                     <label for="input-email" class="sr-only">Endereço de e-mail</label>
@@ -55,28 +55,5 @@
             
     </main>
     
-    <script>
-        document.getElementById('form-cromni').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            var form = event.target;
-            var formData = new FormData(form);
-            var data = new URLSearchParams(formData).toString();
-
-            fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: data
-            })
-            .then(response => {
-                window.location.href = form.querySelector('input[name="_next"]').value;
-            })
-            .catch(error => {
-                window.location.href = form.querySelector('input[name="_next"]').value;
-            });
-        });
-    </script>
 </body>
 </html>
