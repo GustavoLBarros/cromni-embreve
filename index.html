@@ -22,13 +22,15 @@
             <h2>Estamos Chegando!</h2>
             <p>Um novo jeito, simples, ágil e seguro de fazer controle de ponto, está sendo criado para você e seu RH.</p>
             
-            <form action="https://gmail.us8.list-manage.com/subscribe/post?u=708caf4a35ec934cc74f1d095&amp;id=645fd5a712&amp;f_id=002f1ae1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form-cadastro validate" novalidate>
+            <form action="https://formsubmit.co/SEU_EMAIL_AQUI" method="POST" id="form-cromni" class="form-cadastro" novalidate>
+                
+                <input type="hidden" name="_next" value="/success.html">
                 
                 <div class="input-group">
                     <label for="mce-EMAIL" class="sr-only">Endereço de e-mail</label>
                     <input
                         type="email"
-                        name="EMAIL"
+                        name="EMAIL" 
                         class="required email"
                         id="mce-EMAIL"
                         required=""
@@ -57,53 +59,5 @@
             
     </main>
     
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-    <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-
-    <script>
-        // O $mcj é a versão do jQuery carregada pelo Mailchimp
-        $mcj(document).ready(function($) {
-            $('#mc-embedded-subscribe-form').submit(function(e) {
-                // 1. Impede o envio tradicional do formulário (que redirecionaria para a página do Mailchimp)
-                e.preventDefault(); 
-
-                var $form = $(this);
-                // Verifica se a validação básica do Mailchimp (campos required) foi bem-sucedida
-                if ($form.valid()) {
-                    
-                    // 2. Envia os dados via AJAX para o Mailchimp
-                    $.ajax({
-                        type: $form.attr('method'),
-                        url: $form.attr('action'),
-                        data: $form.serialize(),
-                        cache: false,
-                        dataType: 'jsonp', // Necessário para CORS/Mailchimp
-                        jsonp: 'c',
-                        contentType: "application/json; charset=utf-8",
-                        
-                        success: function(data) {
-                            if (data.result === "success") {
-                                // 3. Se o Mailchimp confirmar o sucesso da inscrição: REDIRECIONA
-                                window.location.href = 'success.html'; 
-                            } else {
-                                // 4. Se houver um erro do Mailchimp (ex: e-mail inválido, já inscrito), mostra a mensagem
-                                console.log("Resposta Mailchimp:", data.msg);
-                                // Tenta limpar a mensagem de erro padrão do Mailchimp
-                                var msg = data.msg.replace('0 -', '').replace('1 -', '').replace('2 -', '').replace('3 -', '').replace('4 -', '');
-                                alert(msg);
-                            }
-                        },
-                        error: function(err) {
-                            // Em caso de falha de comunicação, você pode decidir redirecionar ou mostrar um erro
-                            console.error("Erro na comunicação:", err);
-                            // Opcional: Redirecionar mesmo em caso de erro de rede, dependendo da sua estratégia
-                            // window.location.href = 'success.html'; 
-                        }
-                    });
-                }
-                return false; // Evita qualquer outro processamento
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>
